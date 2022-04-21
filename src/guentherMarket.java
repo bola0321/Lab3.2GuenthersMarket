@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -5,14 +6,31 @@ public class guentherMarket {
 
 	public static void main(String[] args) {
 		
-//		HashMap <String, Double>foodNPrice = new HashMap <>();
-//		foodNPrice.put
+		//HashMap <String, Double>foodTracker = new HashMap <>();
+		//foodTracker.put
 		Scanner scnr = new Scanner(System.in);
 		String pickProduce;
 		String yesNo;
-		//TODO: These should be array Lists
-		String[] produce = {"pineapple", "mango","coconut","peach","broccoli","banana","green beans","apple"};
-		double[] price = {4.99, 1.50, 4.49, 0.99, 1.09, 0.50, 3.99, 0.99};
+		
+		ArrayList <String> produce = new ArrayList<String>();
+		produce.add("pineapple");
+		produce.add("mango");
+		produce.add("coconut");
+		produce.add("peach");
+		produce.add("broccoli");
+		produce.add("banana");
+		produce.add("green beans");
+		produce.add("apple");
+		
+		ArrayList <Double> price = new ArrayList<Double>();
+		price.add (4.99);
+		price.add(1.50);
+		price.add(4.49);
+		price.add(0.99);
+		price.add(1.09);
+		price.add(0.50);
+		price.add(3.99);
+		price.add(0.99);
 		
 		System.out.println("Welcome to Guenther's Market!" + "\n");
 		menuHead();
@@ -54,5 +72,6 @@ public class guentherMarket {
 		System.out.printf("%-15s","apple");
 		System.out.println("$0.99");
 	}
+
 	public void double average()
 }

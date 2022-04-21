@@ -6,31 +6,26 @@ public class guentherMarket {
 
 	public static void main(String[] args) {
 
-		// HashMap <String, Double>foodTracker = new HashMap <>();
+		
 		// foodTracker.put
 		Scanner scnr = new Scanner(System.in);
 		String pickedProduce;
 		String yesNo;
-
 		ArrayList<String> produce = new ArrayList<String>();
-		produce.add("pineapple");
-		produce.add("mango");
-		produce.add("coconut");
-		produce.add("peach");
-		produce.add("broccoli");
-		produce.add("banana");
-		produce.add("green beans");
-		produce.add("apple");
-
 		ArrayList<Double> price = new ArrayList<Double>();
-		price.add(4.99);
-		price.add(1.50);
-		price.add(4.49);
-		price.add(0.99);
-		price.add(1.09);
-		price.add(0.50);
-		price.add(3.99);
-		price.add(0.99);
+		
+		
+		HashMap <String, Double>foodTracker = new HashMap <>();
+		foodTracker.put("pineapple",4.99);
+		foodTracker.put("mango",1.50);
+		foodTracker.put("coconut", 4.49);
+		foodTracker.put("peach",0.99);
+		foodTracker.put("broccoli", 1.09);
+		foodTracker.put("banana", 0.50);
+		foodTracker.put("green beans",3.99);
+		foodTracker.put("apple", 0.99);
+
+	
 
 		System.out.println("Welcome to Guenther's Market!");
 		
@@ -42,19 +37,39 @@ public class guentherMarket {
 		
 				System.out.print("\n" + "What item would you like to order? ");
 				pickedProduce = scnr.nextLine().trim().toLowerCase();
-		
 				
-				int indexPlease = produce.indexOf(pickedProduce);
+				boolean userEntry = foodTracker.containsKey(pickedProduce);
+				if(userEntry == false) {
+					throw new RuntimeException ();
+					
+				}
+				
+				//int indexPlease = foodTracker.indexOf(pickedProduce);
 		
-				System.out.printf("Adding " + pickedProduce + " to cart at $" +"%.2f", price.get(indexPlease));
+				System.out.printf("Adding " + pickedProduce + " to cart at $" +"%.2f", foodTracker.get(pickedProduce));
+				
+				//change to ArrayList
+				//produce.get(pickedProduce, price.get(indexPlease));
 		
-				System.out.println("\n" +"\n"+ "Would you like to order anything else (y/n)?");
+				System.out.print("\n" +"\n"+ "Would you like to order anything else (y/n)? ");
 				yesNo = scnr.nextLine().trim().toLowerCase();
-			}catch(IndexOutOfBoundsException e) {
-				System.out.println("Sorry, we don't have those. Please try again.");
+				
+				if (yesNo.equals("n")) {
+					break;
+				}
+				
+				
+			}catch(Exception e) {
+				System.out.println(e);
 			}
 			
-		}
+		} 
+		
+		System.out.println("Thanks for your order!");
+		System.out.println("Here's what you got: ");
+		
+		//need to actually pass arraylist to method, not map ughhhhhhhhhhhh
+		finalList(foodTracker);
 		
 	}
 
@@ -82,6 +97,19 @@ public class guentherMarket {
 		System.out.printf("%-15s", "apple");
 		System.out.println("$0.99");
 	}
+	//Needs to use the parallel arraylist instead
+	public static void finalList(HashMap<String,Double> map) {
+		for (String key: map.keySet()) {
+			System.out.printf("%-15s",key );
+			System.out.print( map.get(key) +"\n" );
+			
+		}
+	//}
+	//public void double average()
+//}
 
-	// public void double average()
+	//public static void
+		
+}
+	
 }

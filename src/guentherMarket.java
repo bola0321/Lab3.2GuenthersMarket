@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class guentherMarket {
 
 	public static void main(String[] args) {
-		
-		//HashMap <String, Double>foodTracker = new HashMap <>();
-		//foodTracker.put
+
+		// HashMap <String, Double>foodTracker = new HashMap <>();
+		// foodTracker.put
 		Scanner scnr = new Scanner(System.in);
-		String pickProduce;
+		String pickedProduce;
 		String yesNo;
-		
-		ArrayList <String> produce = new ArrayList<String>();
+
+		ArrayList<String> produce = new ArrayList<String>();
 		produce.add("pineapple");
 		produce.add("mango");
 		produce.add("coconut");
@@ -21,9 +21,9 @@ public class guentherMarket {
 		produce.add("banana");
 		produce.add("green beans");
 		produce.add("apple");
-		
-		ArrayList <Double> price = new ArrayList<Double>();
-		price.add (4.99);
+
+		ArrayList<Double> price = new ArrayList<Double>();
+		price.add(4.99);
 		price.add(1.50);
 		price.add(4.49);
 		price.add(0.99);
@@ -31,20 +31,30 @@ public class guentherMarket {
 		price.add(0.50);
 		price.add(3.99);
 		price.add(0.99);
+
+		System.out.println("Welcome to Guenther's Market!");
 		
-		System.out.println("Welcome to Guenther's Market!" + "\n");
-		menuHead();
-		menuFood();
+		while(true) {
+			try {
+				System.out.println("");
+				menuHead();
+				menuFood();
 		
-		System.out.print("\n" + "What item would you like to order? ");
-		pickProduce = scnr.nextLine().trim().toLowerCase();
-		//TODO:check each name of selection and make a tally (use switch and default to show error)
+				System.out.print("\n" + "What item would you like to order? ");
+				pickedProduce = scnr.nextLine().trim().toLowerCase();
 		
+				
+				int indexPlease = produce.indexOf(pickedProduce);
 		
+				System.out.printf("Adding " + pickedProduce + " to cart at $" +"%.2f", price.get(indexPlease));
 		
-		System.out.print("\n"+ "Would you like to order anything else (y/n)?");
-		yesNo = scnr.nextLine().trim().toLowerCase();
-		
+				System.out.println("\n" +"\n"+ "Would you like to order anything else (y/n)?");
+				yesNo = scnr.nextLine().trim().toLowerCase();
+			}catch(IndexOutOfBoundsException e) {
+				System.out.println("Sorry, we don't have those. Please try again.");
+			}
+			
+		}
 		
 	}
 
@@ -55,23 +65,23 @@ public class guentherMarket {
 	}
 
 	public static void menuFood() {
-		System.out.printf("%-15s","pineapple");
+		System.out.printf("%-15s", "pineapple");
 		System.out.println("$4.99");
-		System.out.printf("%-15s","mango");
+		System.out.printf("%-15s", "mango");
 		System.out.println("$1.50");
-		System.out.printf("%-15s","coconut");
+		System.out.printf("%-15s", "coconut");
 		System.out.println("$4.49");
-		System.out.printf("%-15s","peach");
+		System.out.printf("%-15s", "peach");
 		System.out.println("$0.99");
-		System.out.printf("%-15s","broccoli");
+		System.out.printf("%-15s", "broccoli");
 		System.out.println("$1.09");
-		System.out.printf("%-15s","banana");
+		System.out.printf("%-15s", "banana");
 		System.out.println("$0.50");
-		System.out.printf("%-15s","green beans");
+		System.out.printf("%-15s", "green beans");
 		System.out.println("$3.99");
-		System.out.printf("%-15s","apple");
+		System.out.printf("%-15s", "apple");
 		System.out.println("$0.99");
 	}
 
-	public void double average()
+	// public void double average()
 }
